@@ -158,5 +158,30 @@ mysql> SELECT     min(birthday) FROM     Entry   ;
 +---------------------+
 1 row in set (0.00 sec)
 
+Exercise 11 - operators
+mysql> SELECT   count(*)  FROM     Entry WHERE type <> 'other';                                                                                                  
++----------+
+| count(*) |
++----------+
+|     2800 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT   count(*)  FROM     Entry WHERE type = 'home' OR type = 'work';
++----------+
+| count(*) |
++----------+
+|     2800 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> SELECT   count(*)  FROM     Entry WHERE subtype = 'phone';
++----------+
+| count(*) |
++----------+
+|      600 |
++----------+
+1 row in set (0.00 sec)
+
 
 
