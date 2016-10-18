@@ -183,5 +183,292 @@ mysql> SELECT   count(*)  FROM     Entry WHERE subtype = 'phone';
 +----------+
 1 row in set (0.00 sec)
 
+Pre workshop 3 - ex. 1
+
+mysql> SELECT
+    ->     a.id, count(ab.accountId) as "Number of address books"
+    -> FROM
+    ->     Account a join AddressBook ab ON (a.id = ab.accountId)
+    ->     
+    -> GROUP BY
+    ->     1
+    -> ORDER BY
+    ->     2 DESC;
++-----+-------------------------+
+| id  | Number of address books |
++-----+-------------------------+
+|  14 |                      19 |
+|   5 |                      19 |
+|  58 |                      18 |
+|  42 |                      18 |
+|   2 |                      17 |
+|  76 |                      16 |
+|  20 |                      16 |
+|  23 |                      15 |
+|  71 |                      15 |
+|  77 |                      15 |
+|  83 |                      15 |
+|  62 |                      15 |
+|  31 |                      15 |
+|  95 |                      14 |
+|  56 |                      14 |
+|  65 |                      14 |
+|  26 |                      14 |
+|  87 |                      14 |
+|  60 |                      13 |
+|  91 |                      13 |
+|  97 |                      13 |
+|  68 |                      13 |
+|  49 |                      13 |
+|  78 |                      13 |
+|  29 |                      13 |
+|  48 |                      13 |
+|  73 |                      13 |
+|  88 |                      13 |
+|   9 |                      12 |
+|  25 |                      12 |
+|   8 |                      12 |
+|  98 |                      12 |
+|  79 |                      12 |
+|  82 |                      12 |
+|  44 |                      12 |
+|  41 |                      12 |
+|  51 |                      12 |
+|  13 |                      12 |
+|  66 |                      12 |
+|  12 |                      12 |
+| 100 |                      12 |
+|  74 |                      12 |
+|  59 |                      12 |
+|  16 |                      12 |
+|  54 |                      11 |
+|  28 |                      11 |
+|  38 |                      11 |
+|  90 |                      11 |
+|   7 |                      11 |
+|  75 |                      11 |
+|  61 |                      11 |
+|  50 |                      11 |
+|  63 |                      11 |
+|  85 |                      11 |
+|  64 |                      11 |
+|  11 |                      11 |
+|  93 |                      11 |
+|  46 |                      10 |
+|  35 |                      10 |
+|  36 |                      10 |
+|   6 |                      10 |
+|  45 |                      10 |
+|   1 |                      10 |
+|  69 |                      10 |
+|  33 |                      10 |
+|  47 |                      10 |
+|  70 |                       9 |
+|  34 |                       9 |
+|  57 |                       9 |
+|  80 |                       9 |
+|  18 |                       9 |
+|  81 |                       9 |
+|  92 |                       9 |
+|  10 |                       9 |
+|  43 |                       9 |
+|  32 |                       9 |
+|  67 |                       9 |
+|  84 |                       9 |
+|  94 |                       9 |
+|  24 |                       9 |
+|  37 |                       8 |
+|  19 |                       8 |
+|  53 |                       8 |
+|   4 |                       8 |
+|  30 |                       8 |
+|  21 |                       8 |
+|  39 |                       7 |
+|  89 |                       7 |
+|  99 |                       7 |
+|  55 |                       7 |
+|  15 |                       7 |
+|  22 |                       7 |
+|   3 |                       7 |
+|  40 |                       7 |
+|  17 |                       6 |
+|  96 |                       6 |
+|  72 |                       6 |
+|  27 |                       6 |
+|  86 |                       5 |
+|  52 |                       3 |
++-----+-------------------------+
+100 rows in set (0.00 sec)
 
 
+
+Pre workshop 3 - ex. 1.2
+
+mysql> SELECT
+    ->     name, count(addressBookId) as "Number of entries"
+    -> FROM
+    ->     Entry e join AddressBook ab ON (e.addressBookId = ab.id)
+    ->     
+    -> GROUP BY
+    ->     1
+    -> ORDER BY
+    ->     2 DESC;
++---------------------------------------+-------------------+
+| name                                  | Number of entries |
++---------------------------------------+-------------------+
+| Neque Company                         |                77 |
+| Eu Augue Incorporated                 |                52 |
+| Ac Tellus Suspendisse PC              |                50 |
+| Quisque Associates                    |                49 |
+| Sed Id Institute                      |                48 |
+| Sagittis PC                           |                48 |
+| Ipsum Nunc LLC                        |                47 |
+| Egestas Aliquam Industries            |                46 |
+| Orci Tincidunt Adipiscing LLP         |                46 |
+| Nulla In Tincidunt Institute          |                46 |
+| Eleifend Nunc Risus Institute         |                45 |
+| Enim Mi Tempor Inc.                   |                45 |
+| Sed Congue Elit Limited               |                45 |
+| Venenatis Lacus Consulting            |                44 |
+| Pharetra Ut Limited                   |                44 |
+| In Faucibus Orci LLC                  |                44 |
+| Vestibulum Mauris Ltd                 |                44 |
+| Non Lobortis Quis Corp.               |                44 |
+| Commodo Ipsum PC                      |                43 |
+| Magna Corp.                           |                43 |
+| Non Consulting                        |                43 |
+| Justo Faucibus Lectus Company         |                43 |
+| Vel PC                                |                43 |
+| Porta Ltd                             |                42 |
+| Fermentum Fermentum Company           |                42 |
+| Tempor Augue PC                       |                41 |
+| Adipiscing Institute                  |                41 |
+| Pede Company                          |                41 |
+| Est Mauris Consulting                 |                41 |
+| Mauris Blandit Limited                |                41 |
+| Elit Elit PC                          |                40 |
+| Parturient Montes Nascetur Industries |                40 |
+| Malesuada Associates                  |                39 |
+| Lorem Auctor Foundation               |                39 |
+| Eu Placerat Ltd                       |                39 |
+| A Purus Duis Associates               |                39 |
+| Penatibus Et Magnis Incorporated      |                38 |
+| Nunc Mauris Associates                |                38 |
+| Enim Commodo Hendrerit Industries     |                38 |
+| Arcu Aliquam Associates               |                38 |
+| Sit Consulting                        |                38 |
+| Eros Non Ltd                          |                38 |
+| Malesuada Id Erat Associates          |                38 |
+| Et Limited                            |                38 |
+| Ut Nec Urna PC                        |                37 |
+| Tellus Sem Inc.                       |                37 |
+| Et Ltd                                |                37 |
+| Sem Corporation                       |                37 |
+| Dui Institute                         |                37 |
+| Sed Dui Corporation                   |                37 |
+| Et Euismod LLP                        |                36 |
+| Ac Foundation                         |                36 |
+| Quisque Nonummy Incorporated          |                36 |
+| Libero Proin Sed Corporation          |                36 |
+| Odio Auctor Vitae Limited             |                36 |
+| Fringilla Ornare LLC                  |                36 |
+| Aliquam Foundation                    |                36 |
+| At Foundation                         |                36 |
+| Nec Leo Morbi Foundation              |                36 |
+| Ligula Nullam Corporation             |                36 |
+| Mollis Corporation                    |                36 |
+| Faucibus Associates                   |                36 |
+| Elementum Company                     |                35 |
+| Amet Consectetuer Adipiscing LLC      |                35 |
+| Metus Inc.                            |                35 |
+| Lorem Foundation                      |                35 |
+| Id Ltd                                |                35 |
+| Fringilla Corp.                       |                35 |
+| Justo Nec Incorporated                |                35 |
+| Ut Nisi Ltd                           |                34 |
+| Sem Industries                        |                34 |
+| Arcu Industries                       |                34 |
+| Accumsan Industries                   |                34 |
+| Sapien Cursus Associates              |                34 |
+| Sit Amet Diam Foundation              |                33 |
+| Varius Incorporated                   |                33 |
+| Lobortis Corporation                  |                33 |
+| Scelerisque Mollis Phasellus LLP      |                33 |
+| Purus Mauris Industries               |                33 |
+| Vitae Posuere At Company              |                33 |
+| Vitae Institute                       |                32 |
+| Varius Corp.                          |                32 |
+| Sed Inc.                              |                31 |
+| Rutrum Lorem Corp.                    |                31 |
+| Non Sollicitudin Corp.                |                31 |
+| Lacus Quisque Corporation             |                31 |
+| Ornare Elit Corp.                     |                31 |
+| Torquent Industries                   |                31 |
+| Enim Etiam LLP                        |                31 |
+| Aliquet Institute                     |                30 |
+| Quam LLC                              |                30 |
+| Ut Cursus Incorporated                |                30 |
+| Luctus Corp.                          |                30 |
+| Nulla Incorporated                    |                30 |
+| Dolor Sit Amet Limited                |                30 |
+| Bibendum Ullamcorper Associates       |                30 |
+| Vivamus Ltd                           |                29 |
+| Eget Lacus Associates                 |                29 |
+| Donec Vitae LLP                       |                29 |
+| Quis Pede Praesent Institute          |                29 |
+| Egestas Nunc Corporation              |                28 |
+| Euismod In Limited                    |                27 |
+| Et Company                            |                27 |
+| Libero Integer Ltd                    |                26 |
+| Vestibulum Nec Euismod LLC            |                24 |
+| Risus Incorporated                    |                23 |
+| Sed Foundation                        |                22 |
+| Egestas Hendrerit Neque Foundation    |                22 |
+| Donec Incorporated                    |                19 |
++---------------------------------------+-------------------+
+109 rows in set (0.16 sec)
+
+Pre workshop 3 - ex. 2.1
+mysql>     SELECT 
+    ->     count(DISTINCT addressBookId) as "Number of address books with (3--)"
+    -> FROM
+    ->     Entry
+    -> WHERE
+    ->     contentLineOne LIKE '3%';
++------------------------------------+
+| Number of address books with (3--) |
++------------------------------------+
+|                                 75 |
++------------------------------------+
+1 row in set (0.00 sec)
+
+ex. 2.2
+
+mysql> SELECT 
+    ->     count(DISTINCT addressBookId) as "Number of address books without 5"
+    -> FROM
+    ->     Entry
+    -> WHERE
+    ->     contentLineOne NOT IN (5);
++-----------------------------------+
+| Number of address books without 5 |
++-----------------------------------+
+|                               110 |
++-----------------------------------+
+1 row in set, 4000 warnings (0.19 sec)
+
+ex. 2.3
+
+
+mysql> SELECT 
+    ->     count(*)
+    -> FROM
+    ->     Entry
+    -> WHERE
+    ->     type = 'work' and subtype = 'phone' and contentLineOne NOT LIKE '(%';
++----------+
+| count(*) |
++----------+
+|       60 |
++----------+
+1 row in set (0.00 sec)
